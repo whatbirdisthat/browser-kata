@@ -10,25 +10,39 @@ function assertEquals(expected, actual) {
 function runTests(theTests) {
 
   let startTime = new Date()
+  var passCount = 0
+  var failCount = 0
+
+  document.write("<pre>")
 
   for (var i in theTests) {
     let testName = i
     var testResult = "\u2713"
+    var testResultHTML = "<font color=\"green\">" + testResult + "</font>"
+
     var failReport = null
     try {
       let theGame = new BowlingGame();
       theTests[i](theGame);
+      passCount++
     } catch (e) {
       testResult = "\u2717"
-      failReport = {...{testName:testName},...e}
+      testResultHTML = "<font color=\"red\">" + testResult + "</font>"
+      failReport = e
+      failCount++
     }
     console.log(testResult + " - " + testName)
     failReport && console.table(failReport)
-    document.write("<pre>" + testResult + " - " + testName + "</pre>")
-    failReport && document.write("<pre>" + failReport + "</pre>")
+
+
+    document.write("\n" + testResultHTML + " - " + testName)
+    failReport && document.write(JSON.stringify(failReport))
 
   }
+
   let theDuration = new Date() - startTime
-  console.log(theDuration + "s DURATION")
-  document.write("<br><pre>" + theDuration + "s </pre>")
+  let summaryMessage = passCount + " passed, " + failCount + " failed in " + theDuration + "s"
+  document.write("</pre>")
+  console.log(summaryMessage)
+  document.write("<br><pre>" + summaryMessage + "</pre>")
 }
