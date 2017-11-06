@@ -8,6 +8,9 @@ function assertEquals(expected, actual) {
 }
 
 function runTests(theTests) {
+
+  let startTime = new Date()
+
   for (var i in theTests) {
     let testName = i
     var testResult = "\u2713"
@@ -21,5 +24,11 @@ function runTests(theTests) {
     }
     console.log(testResult + " - " + testName)
     failReport && console.table(failReport)
+    document.write("<pre>" + testResult + " - " + testName + "</pre>")
+    failReport && document.write("<pre>" + failReport + "</pre>")
+
   }
+  let theDuration = new Date() - startTime
+  console.log(theDuration + "s DURATION")
+  document.write("<br><pre>" + theDuration + "s </pre>")
 }

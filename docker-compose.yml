@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  browser-bowling-kata:
+    build: .
+    volumes:
+      - ./:/kata
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    working_dir: /kata
+    #entrypoint: ash
+    entrypoint: browser-sync start -s --files="*.js" --index="index.html" --no-open
+    stdin_open: true
+    tty: true

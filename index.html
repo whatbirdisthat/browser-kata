@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <style> body {padding: 0; margin: 0;} </style>
-    <script src="game.js"></script>
-  </head>
-  <body>
-  </body>
-  <script src="test-runner.js"></script>
-  <script src="tests.js"></script>
+	<head>
+		<title>Bowling Kata in the browser...</title>
+		<script src="game.js"></script>
+		<script src="test-runner.js"></script>
+		<script src="tests.js"></script>
+	</head>
+	<body>
+    <pre id="test-output"></pre>
+		<script id="__bs_script__">//<![CDATA[
+document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.18.13'><\/script>".replace("HOST", location.hostname));
+//]]></script>
+	</body>
 </html>

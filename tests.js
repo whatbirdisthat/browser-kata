@@ -7,7 +7,7 @@ let tests = {
 
   SinglePinGameScoreIsOne: function (game) {
     game.bowl(1);
-    assertEquals(0, game.score());
+    assertEquals(1, game.score());
   },
 
   AllOnesGameScoreIsNineteen: function (game) {

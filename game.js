@@ -1,12 +1,10 @@
+function BowlingGame() {
+  this.the_score= 0
+}
+BowlingGame.prototype.bowl = function() {
+  this.the_score += 1
+}
 
-Object.prototype.BowlingGame = function() {
-  return {
-    _score: 0,
-    bowl: function() {
-      this._score += 1
-    },
-    score: function() {
-      return this._score;
-    }
-  }
+BowlingGame.prototype.score= function() {
+  return this.the_score;
 }
