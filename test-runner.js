@@ -16,7 +16,7 @@ function runTests(theTests) {
   document.write("<pre>")
 
   for (var i in theTests) {
-    let testName = i
+    let testName = i.split(/(?=[A-Z])/).join(" ")
     var testResult = "\u2713"
     var testResultHTML = "<font color=\"green\">" + testResult + "</font>"
 
@@ -36,7 +36,7 @@ function runTests(theTests) {
 
 
     document.write("\n" + testResultHTML + " - " + testName)
-    failReport && document.write(JSON.stringify(failReport))
+    failReport && document.write(" " + JSON.stringify(failReport))
 
   }
 

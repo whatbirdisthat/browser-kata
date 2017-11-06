@@ -15,7 +15,21 @@ let tests = {
       game.bowl(1);
     }
     assertEquals(19, game.score());
-  }
+  },
+
+  CanReportASpare: function(game) {
+    game.bowl(6)
+    game.bowl(4)
+    game.bowl(3)
+    assertEquals(16, game.score())
+  },
+
+  /*CanReportASpareWithOverlappingSums: function(game) {
+    game.bowl(7)
+    game.bowl(3)
+    game.bowl(7)
+    assertEquals(16, game.score())
+  }*/
 
 }
 
