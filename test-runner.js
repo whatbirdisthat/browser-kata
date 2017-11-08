@@ -32,7 +32,8 @@ function runTests(theTests) {
       failCount++
     }
     console.log(testResult + " - " + testName)
-    failReport && console.table(failReport)
+    //failReport && console.table(failReport)
+    console.table(failReport)
 
 
     document.write("\n" + testResultHTML + " - " + testName)
