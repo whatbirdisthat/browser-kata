@@ -32,6 +32,21 @@ let tests = {
     game.bowl(7)
     bowlMany(game, 17, 0)
     assertEquals(24, game.score())
+  },
+
+  CanReportAGameWithAStrike: function(game) {
+    game.bowl(0);
+    game.bowl(1);
+    game.bowl(10);
+    game.bowl(1);
+    game.bowl(1);
+    bowlMany(game, 14, 0)
+    assertEquals(15, game.score())
+  },
+
+  CanReportAPerfectGame: function(game) {
+    bowlMany(game, 21, 10)
+    assertEquals(300, game.score())
   }
 
 }

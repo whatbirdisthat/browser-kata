@@ -22,7 +22,10 @@ BowlingGame.prototype.score = function() {
   var theScore = 0
   var frameIndex = 0
   for (var i = 0; i < 10; i++) {
-    if (isSpare(this.bowls, frameIndex)) {
+    if (this.bowls[frameIndex] == 10) {
+      theScore += 10 + this.bowls[frameIndex+1] + this.bowls[frameIndex+2]
+      frameIndex++
+    } else if (isSpare(this.bowls, frameIndex)) {
       theScore += spareBonus(this.bowls, frameIndex)
       frameIndex+=2
     } else {
